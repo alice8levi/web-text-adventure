@@ -1,0 +1,110 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP Бар Игрока</title>
+    <link rel="stylesheet" href="assets/styles/main.css">
+    
+    <script type="module" src="main.js"></script>
+</head>
+<body>
+    <div class="container column space-center">
+
+        <!----- ВЕРХНЯЯ ПАНЕЛЬ ---------------------------------------------------------->
+        <div class="game-header">
+            <div class="stats-container">
+                <!--верхняя панель информации  -->
+                <div class="stats-container-header row wrap">
+                    <div class="col-6 playerInfo">
+                        <div class="row space-b wrap">
+                             <div class="">Игрок <span id="userName"> </span></div>                    
+                             <div>Уровень <span id="userLVL">0</span>  </div>
+                        </div>
+                         <div class="t-left">Эффекты <span id="userEffects">-</span></div>
+                    </div>
+                    <div class="col-6 fl-end live-timer">
+                          <div class="game-time" id="gameTime">Жив: 00:00</div>   
+                    </div>
+                </div>                               
+                <!-- НАВИГАЦИЯ  -->
+                <div class="row wrap">
+                    <div class="col-6">
+                        <!--  бары -->
+                        <div class="bars-container">
+                            <div class="bar-group">
+                                <div class="bar-label t-left">HP</div>
+                                <div class="bar hp-bar">
+                                    <div class="bar-fill" id="hpFill"></div>
+                                </div>
+                                <div class="bar-value t-right" id="hpValue">100/100</div>
+                            </div>
+                            
+                            <div class="bar-group">
+                                <div class="bar-label t-left">Mana</div>
+                                <div class="bar mana-bar">
+                                    <div class="bar-fill" id="manaFill"></div>
+                                </div>
+                                <div class="bar-value t-right" id="manaValue">50/50</div>
+                            </div>
+                            
+                            <div class="bar-group">
+                                <div class="bar-label t-left">Stamina</div>
+                                <div class="bar stamina-bar">
+                                    <div class="bar-fill" id="staminaFill"></div>
+                                </div>
+                                <div class="bar-value t-right" id="staminaValue">80/80</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons fl-start">
+                            <button id="increaseHP">+HP</button>
+                            <button id="decreaseHP">-HP</button>
+                            <button id="bite">Кусь</button>
+                            <button id="inventoryButton" class="inventory-button">🎒</button>
+                        </div>
+                    </div>                
+                    <div class="col-6">
+                        <div class="story-area" id="output-screen">
+                            <div class="output" id="output">
+                            </div>
+                        </div>
+                           <div class="adventure-buttons j-between" id="action-buttons">
+                            <button id="left">-></button>
+                            <button id="center">-</button>                            
+                            <button id="right">-></button>
+                        </div>
+                    </div>
+                </div>              
+            </div>        
+                
+                <!-- навигация 
+                <nav class="row">
+                    <div class="col-6">
+                       
+                    <div class="col-6">
+                       
+                    </div>
+                   </div>
+                </nav>  -->
+
+            </div>
+        
+
+        <div class="game-area">
+            <div class="hero" id="hero"></div>
+        </div>
+
+        <div class="inventory hidden" id="inventoryPanel">
+            <h2>Инвентарь <span class="close-inventory">×</span></h2>
+            <div class="inventory-slots" id="inventorySlots"></div>
+        </div>
+
+        <div class="event-log" id="eventLog">
+            <h2>Журнал событий</h2>
+            <div class="event-entries" id="eventEntries"></div>
+        </div>
+    
+</div>
+</body>
+</html>

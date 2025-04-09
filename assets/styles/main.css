@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+
+    text-align: center;
+    max-width: 800px;
+    min-width: 320px;
+    width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    overflow-y: hidden;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.space-b {
+    justify-content: space-between;
+}
+.space-a {
+    justify-content: space-around;
+}
+.space-e {
+    justify-content: space-evenly;
+}
+.space-center {
+    justify-content: center;
+}
+
+
+
+
+.t-left {
+    text-align: left;
+}
+
+.t-right {
+    text-align: right;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 320px;
+    width: 50%;
+}
+
+.j-between {
+    justify-content: space-between;
+}
+
+.fl-end {
+    align-items: flex-end;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+
+.game-header {
+    margin-bottom: 20px;
+    width: 100%;
+    display: inline-block
+}
+
+.stats-container {
+    max-height: 30%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.game-time {
+    font-size: 18px;
+    
+}
+
+.bars-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.bar-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bar-label {
+    width: 60px;
+    font-weight: bold;
+}
+
+.bar {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #000;
+    background-color: #ddd;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.hp-bar .bar-fill {
+    background-color: #e74c3c;
+}
+
+.mana-bar .bar-fill {
+    background-color: #3498db;
+}
+
+.stamina-bar .bar-fill {
+    background-color: #2ecc71;
+}
+
+.bar-value {
+    width: 60px;
+    font-size: 14px;
+}
+
+.action-buttons, .adventure-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.action-buttons button,.adventure-buttons button  {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.inventory-button {
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.game-area {
+    height: 25vh;
+    background-color: #e0e0e0;
+    border: 2px solid #000;
+    
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.story-area {
+    max-height: 80%;
+    background-color: #e0e0e0;
+    border: 2px solid #000;
+       position: relative;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+.output {
+    margin: 10px;
+    overflow: auto;
+}
+
+.hero {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+
+.inventory {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 100;
+    max-width: 90%;
+}
+
+.inventory.hidden {
+    display: none;
+}
+
+.inventory h2 {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-inventory {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.inventory-slots {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.inventory-slot {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.inventory-slot img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.event-log {
+    margin-top: 20px;
+    max-height: 20vh;
+    overflow-y: hidden;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    text-align: left;
+    border-radius: 5px;
+}
+.event-log h2 {
+    margin: 5px;
+}
+.event-entry {
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.event-entries {
+    max-height: 120px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.event-entries::-webkit-scrollbar {
+    width: 5px;
+}
+
+.event-entries::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.event-entries::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
