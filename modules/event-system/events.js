@@ -60,6 +60,11 @@ function tryTriggerEvent() {
             }
         }
     }
+
+
+const player_events = {
+    
+}
 export {events, startRandomEvents, tryTriggerEvent} ;
 
 

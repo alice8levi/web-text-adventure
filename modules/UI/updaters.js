@@ -14,8 +14,8 @@ export function updateLVL() {
 // Обновление всех баров
 export function updateAllBars() {
     updateBar('hp', player.stats.hp, player.const_stats.MAX_HP);
-    updateBar('mana', player.stats.mana, player.const_stats.MAX_MANA);
-    updateBar('stamina', player.stats.stamina, player.const_stats.MAX_STAMINA);
+    updateBar('mental', player.stats.mental, player.const_stats.MAX_MENTAL);
+    updateBar('energy', player.stats.energy, player.const_stats.MAX_ENERGY);
 }
 
 export function updateBar(type, current, max) {
@@ -87,4 +87,30 @@ export function oneCharPrinter(text, delay, where) {
 
                
 
-       
+export function createButton(dsnId,btnName, infObj, handler) {
+    
+    let btn = createCustomElement('button', infObj, btnName);
+    document.getElementById(dsnId).append(btn);
+    btn.addEventListener('click', handler)
+}
+
+function createCustomElement(tag, obj, text = false) {
+    const element = document.createElement(tag);
+
+    for (let key in obj) {
+      element.setAttribute(key, obj[key]);
+    }
+    if(text) {
+        element.textContent = text;
+    }
+    return element;
+  }
+  
+//   const customBTN = createCustomElement('button', { id: '0', class: 'action_btn' }, "Go to left");
+//   document.getElementById('action-buttons').append(customBTN);
+//   const customBTN2 = createCustomElement('button', { id: '1', class: 'action_btn' }, "Go to r");
+//   document.getElementById('action-buttons').append(customBTN2);
+//   const customBTN3 = createCustomElement('button', { id: '3', class: 'action_btn' }, "Go to r");
+//   document.getElementById('action-buttons').append(customBTN3);
+
+ 

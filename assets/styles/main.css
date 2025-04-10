@@ -132,11 +132,11 @@ body {
     background-color: #e74c3c;
 }
 
-.mana-bar .bar-fill {
+.mental-bar .bar-fill {
     background-color: #3498db;
 }
 
-.stamina-bar .bar-fill {
+.energy-bar .bar-fill {
     background-color: #2ecc71;
 }
 

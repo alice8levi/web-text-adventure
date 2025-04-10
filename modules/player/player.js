@@ -7,19 +7,20 @@
             this.lvl = Math.floor(this.total/100)
         }
     },
-     inventory: Array(10).fill(null), // 10 слотов инвентаря
-    // position: { x: 50, y: 0 },
-    // state: 'idle',
+    inventory: Array(10).fill(null), // 10 слотов инвентаря
     lastEventTime: 0,
     const_stats: {
         MAX_HP: 100,        
-        MAX_MANA: 50,       
-        MAX_STAMINA: 80,        
+        MAX_MENTAL: 100,       
+        MAX_ENERGY: 100, 
+        MIN_HP: 0,
+        MIN_MENTAL: 0,  
+        MIN_ENERGY: 0,      
     },
     stats: {
         hp: 100,
-        mana: 50,
-        stamina: 80
+        mental: 100,
+        energy: 100,
     },
 };
 

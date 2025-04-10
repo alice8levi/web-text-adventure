@@ -18,6 +18,7 @@ import items from "./modules/item-system/items.js";
  import player from "./modules/player/player.js";
 // import events from "/events.js";
 
+import { test } from './modules/scenario/controller.js';
 
 
 // Инициализация игры
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', ()=>
         ui.updateInventoryUI();
         
         initAllUIListeners();
-        ui.oneCharPrinter(text, 30, UI_DOM.outputText)
-
+        
+        test()
     }
 );

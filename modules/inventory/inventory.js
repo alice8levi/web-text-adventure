@@ -25,7 +25,7 @@ export function initInventory() {
             slot.title = player.inventory[i].title;
         }
         
-        UI_DOM.inventorySlots.appendChild(slot);
+        UI_DOM.inventorySlots.append(slot);
     }
 }
 
