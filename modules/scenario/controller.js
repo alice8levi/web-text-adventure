@@ -89,11 +89,15 @@ let storyPoint = {
 export function test() {
     
     if(storyPoint.currentPos < storyPoint.currentText.length-1) {
+        UI_DOM.outputText.innerHTML = ""
         oneCharPrinter(storyPoint.currentText[storyPoint.currentPos++], 30, UI_DOM.outputText)
-        createButton('action-buttons',"111", { id: '1', class: 'action_btn' }, test) //добавить очистку, объединить
+        document.getElementById('action-buttons').innerHTML = '';
+        createButton('action-buttons',"Далее...", { id: '1', class: 'action_btn' }, test) //вынести в ункцию
     }
     else {
+        UI_DOM.outputText.innerHTML = ""
         oneCharPrinter(storyPoint.currentText[storyPoint.currentPos++], 30, UI_DOM.outputText)
+        document.getElementById('action-buttons').innerHTML = '';
         createButton('action-buttons',"TEST", { id: '3', class: 'action_btn' }, ()=>alert()) 
     }
     
