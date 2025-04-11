@@ -58,9 +58,13 @@
                             </div>
                         </div>
                         <div class="action-buttons fl-start">
-                            <button id="increaseHP">+HP</button>
+                            <!-- <button id="increaseHP">+HP</button>
                             <button id="decreaseHP">-HP</button>
-                            <button id="bite">Кусь</button>
+                            <button id="bite">Кусь</button> -->
+                              
+                            <button id="settingsButton" class="inventory-button">⚙</button>
+                            <button id="hystoryButton" class="inventory-button">📜</button>
+                            <button id="relationsButton" class="inventory-button">👥</button>
                             <button id="inventoryButton" class="inventory-button">🎒</button>
                         </div>
                     </div>                
@@ -69,7 +73,7 @@
                             <div class="output" id="output">
                             </div>
                         </div>
-                           <div class="adventure-buttons j-between" id="action-buttons">
+                           <div class="adventure-buttons j-between" id="action-buttons-container">
                             <!-- <button id="left">-></button>
                             <button id="center">-</button>                            
                             <button id="right">-></button> -->
@@ -100,11 +104,28 @@
             <div class="inventory-slots" id="inventorySlots"></div>
         </div>
 
+      
+    
+        <div class="hystory hidden" id="hystoryPanel">
+            <h2>Воспоминания <span class="close-hystory">×</span></h2>
+            <div class="hystory-entrie" id="hystorySlot"></div>
+        </div>
+
+        <div class="settings hidden" id="settingsPanel">
+            <h2>Настройки <span class="close-settings">×</span></h2>
+            <div class="settings-entrie" id="settingsSlot"></div>
+        </div>
+
+        <div class="relations hidden" id="relationsPanel">
+            <h2>Отношения <span class="close-relations">×</span></h2>
+            <div class="relations-entries" id="relationsSlots"></div>
+        </div>
+
+
         <div class="event-log" id="eventLog">
             <h2>Журнал событий</h2>
             <div class="event-entries" id="eventEntries"></div>
         </div>
-    
 </div>
 </body>
 </html>

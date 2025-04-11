@@ -72,33 +72,102 @@ import * as UI_DOM from '../../config/dom-consts.js'
 //     actors: [player, [NPC1, NPC1]]
 // }
 // 
-// 
+// example
 let storyPoint = {
     id: 0,
     // текст позици сцены
     currentText : ['Вы открываете глаза. Темнота.От холодного бетоннго пола онемела спина. Голова гудит, во рту — вкус крови.',
        'TEXT2', 'TEXT3' ], 
-    currentPos : 0,
+    currentPos : 0, //current position in currentText array
     //объекты кнопок сцены            
-//     currentActionButtons : [actionBtns[1],
-//                            actionBtns[2],
-//                            ] ,
+    // currentActionButtons : [actionBtns[1],
+    //                        actionBtns[2],
+    //                        ] ,
+    storyScore: 9,
+    maxScore:10,
+    waysCount:3,
+    calcNextPoint: (maxScore, waysCount )=>{
+        const part = Math.trunc(maxScore/waysCount)
+        let nextIndex = ++storyPoint.id
+        for(let i=1; i<=waysCount;i++) {
+            if(storyPoint.storyScore > part*i) {
+                nextIndex++
+                continue
+            }
+            else {
+                return nextIndex
+            }
+            
+        }
+        
+    }
  }
+
+ //action button example
+// let actionBtn = {
+//     id: 0,
+//     name: "Далее...",    
+//     handler: test,
+//     attrs: {
+//         class: "action-btn"
+//     }
+// }
+
+//constructor
+function ActionButton(id ,name ,handler_callback, tag_attributes) {
+    this.id= id;
+    this.name = name;    
+    this.handler = handler_callback;
+    this.attrs = tag_attributes;
+}
+
+const nextBtn = new ActionButton(0, "Далее...", test, {class: "action-btn"})
+let storyScore = 0
+function h1() {
+    storyScore++
+    alert('Вы напугали деда')
+}
+
+function h2() {
+    storyScore +=5
+    alert('Вы порадовали деда')
+}
+function h3() {
+    storyScore +=10
+    alert('Вы убили деда')
+}
+
+
+//StoryPoint.currentActionButtons
+const actionButtonsArr = [
+    new ActionButton(1, "Осмотреться", h1, {class: "action-btn"}),
+    new ActionButton(2, "Ощупать себя", h2, {class: "action-btn"}),
+    new ActionButton(3, "Попытаться вспомнить, что случилось", h3, {class: "action-btn"}),
+]
+function toNextPoint(newPoint) {
+    currentStoryPoint = newPoint
+}
 
 
 export function test() {
     
     if(storyPoint.currentPos < storyPoint.currentText.length-1) {
-        UI_DOM.outputText.innerHTML = ""
-        oneCharPrinter(storyPoint.currentText[storyPoint.currentPos++], 30, UI_DOM.outputText)
-        document.getElementById('action-buttons').innerHTML = '';
-        createButton('action-buttons',"Далее...", { id: '1', class: 'action_btn' }, test) //вынести в ункцию
+        clear(UI_DOM.outputText, UI_DOM.buttonsContainer)    
+        oneCharPrinter(storyPoint.currentText[storyPoint.currentPos], 30, UI_DOM.outputText) //print current text char by char
+        storyPoint.currentPos++
+        createButton('action-buttons-container',nextBtn.name, nextBtn.attrs, nextBtn.handler) //вынести в ункцию updateStoryScreen
     }
     else {
-        UI_DOM.outputText.innerHTML = ""
-        oneCharPrinter(storyPoint.currentText[storyPoint.currentPos++], 30, UI_DOM.outputText)
-        document.getElementById('action-buttons').innerHTML = '';
-        createButton('action-buttons',"TEST", { id: '3', class: 'action_btn' }, ()=>alert()) 
+        clear(UI_DOM.outputText, UI_DOM.buttonsContainer)
+        oneCharPrinter(storyPoint.currentText[storyPoint.currentPos], 30, UI_DOM.outputText)
+        actionButtonsArr.forEach((button)=>createButton('action-buttons-container',button.name, button.attrs, button.handler))
+         alert(`NEXT ARR INDEX =`+storyPoint.calcNextPoint(storyPoint.maxScore,storyPoint.waysCount))
     }
     
+} 
+
+function clear(...elems) {
+    for (const elem of elems) {
+        elem.innerHTML = "";
+    }
 }
